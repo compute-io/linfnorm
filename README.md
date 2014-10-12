@@ -2,7 +2,7 @@ linfnorm
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the infinity norm (Chebyshev/supremum norm) of an array of values.
+> Computes the infinity norm ([Chebyshev/supremum norm](http://en.wikipedia.org/wiki/Norm_(mathematics))) of an array of values.
 
 
 ## Installation
@@ -19,14 +19,33 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'compute-linfnorm' );
+var linfnorm = require( 'compute-linfnorm' );
+```
+
+
+#### linfnorm( arr )
+
+Computes the maximum norm ([infinity/Chebyshev/supremum/uniform norm](http://en.wikipedia.org/wiki/Norm_(mathematics))) of an `array`.
+
+``` javascript
+var data = [ 5, -20, 3, 0, 19 ];
+
+var max = linfnorm( data );
+// returns 20
 ```
 
 
 ## Examples
 
 ``` javascript
-var lib = require( 'compute-linfnorm' );
+var linfnorm = require( 'compute-linfnorm' );
+
+var data = new Array( 100 );
+for ( var i = 0; i < data.length; i++ ) {
+	data[ i ] = Math.random()*100 - 50;
+}
+
+console.log( linfnorm( data ) );
 ```
 
 To run the example code from the top-level application directory,

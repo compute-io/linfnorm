@@ -25,7 +25,14 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "mathematics",
+    "math",
+    "linear algebra",
+    "norm",
+    "supremum norm",
+    "chebyshev norm",
+    "maximum norm"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/linfnorm/issues"
