@@ -1,6 +1,6 @@
 {
   "name": "compute-linfnorm",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes the infinity norm (Chebyshev/supremum norm) of an array of values.",
   "author": {
     "name": "Athan Reines",
