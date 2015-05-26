@@ -4,6 +4,12 @@ linfnorm
 
 > Computes the infinity norm ([Chebyshev/supremum norm](http://en.wikipedia.org/wiki/Norm_(mathematics))) of an array of values.
 
+For an array of values `x`, the infinity norm takes the form
+
+<div class="equation" align="center" data-raw-text="\|x\|_\infty=\max\{ |x_0|, \dots, |x_{n-1}| \}" data-equation="eq:linfnorm">
+	<img src="https://cdn.rawgit.com/compute-io/linfnorm/a1e352fc07ba8e6ddda430b020ca2be419596edb/docs/img/eqn.svg" alt="Infinity Norm">
+	<br>
+</div>
 
 ## Installation
 
@@ -16,14 +22,13 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
 
 ``` javascript
 var linfnorm = require( 'compute-linfnorm' );
 ```
 
 
-#### linfnorm( arr )
+#### linfnorm( arr[, accessor] )
 
 Computes the maximum norm ([infinity/Chebyshev/supremum/uniform norm](http://en.wikipedia.org/wiki/Norm_(mathematics))) of an `array`.
 
@@ -33,6 +38,28 @@ var data = [ 5, -20, 3, 0, 19 ];
 var max = linfnorm( data );
 // returns 20
 ```
+
+For non-numeric `arrays`, provide an accessor `function` for accessing `numeric` values.
+
+``` javascript
+var arr = [
+	{'x':5},
+	{'x':-20},
+	{'x':3},
+	{'x':0},
+	{'x':19}
+];
+
+function getValue( d ) {
+	return d.x;
+}
+
+var max = linfnorm( arr, getValue );
+// returns 20
+```
+
+
+__Note__: if provided an empty `array`, the function returns `null`.
 
 
 ## Examples
@@ -59,7 +86,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -83,16 +110,15 @@ $ make view-cov
 ```
 
 
+---
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
-
+Copyright &copy; 2014-2015. The Compute.io Authors.
 
 [npm-image]: http://img.shields.io/npm/v/compute-linfnorm.svg
 [npm-url]: https://npmjs.org/package/compute-linfnorm
